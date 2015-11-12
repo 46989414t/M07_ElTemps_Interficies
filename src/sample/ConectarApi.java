@@ -109,7 +109,7 @@ public class ConectarApi {
         //System.out.println("DT: "+respostaList.get(Integer.parseInt("dt")));
 
         for (int i =0; i < respostaList.size(); i++){
-            System.out.println("llega al primer for");
+            //System.out.println("llega al primer for");
             //System.out.println("elementos del array: "+respostaList.size());
 
             //8System.out.println("DT: "+respostaList.get(Integer.parseInt("dt")));

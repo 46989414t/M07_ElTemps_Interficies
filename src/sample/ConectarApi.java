@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * Created by dremon on 09/11/15.
+ * Created by Enric on 09/11/15.
  */
 public class ConectarApi {
 
@@ -111,6 +111,7 @@ public class ConectarApi {
         JSONArray respostaList = (JSONArray)arra02.get("list");
         //Extraer atributos del primer tag de list
         for (int i =0; i < respostaList.size(); i++){
+
             //System.out.println("llega al primer for");
             JSONObject listaJsonObj = (JSONObject)respostaList.get(i);
             //Extraer atributos del tag temp
@@ -118,20 +119,6 @@ public class ConectarApi {
             System.out.println("DIA: "+(diaInt+i)+"/"+mes+"/"+annio);
             System.out.println("Mínimas: "+temp.get("min"));
             System.out.println("Máximas: "+temp.get("max")+"\n");
-
-        }
-
-    }
-
-    public static void SJC (String cadena){
-        Object obj02 = JSONValue.parse(cadena);
-        JSONObject arra02=(JSONObject)obj02;
-        JSONArray arra03 = (JSONArray)arra02.get("cast");
-
-        for (int i = 0; i < arra03.size(); i++) {
-
-            JSONObject jb= (JSONObject)arra03.get(i);
-            System.out.println(jb.get("character")+"<-->"+jb.get("name"));
 
         }
 

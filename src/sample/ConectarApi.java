@@ -57,18 +57,16 @@ public class ConectarApi {
         }
         SJS(s);*/
 
-        for (int i = 0; i < dies; i++) {
-            //int peli = 908 +i;
-            //String film = String.valueOf(peli);
-            //String peticio = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key="+api_key;
-            try {
+        //for (int i = 0; i < dies; i++) {
+               try {
                 s = getHTML(peticio2);
                 SJS(s);
                 //SJC(s);
             } catch (Exception e) {
+                   e.getMessage();
                 System.out.println("no existeix");
             }
-        }
+        //}
 
 
     }
@@ -85,16 +83,11 @@ public class ConectarApi {
         //System.out.println(out);
         //Ciutats
         JSONObject respostaCity = (JSONObject)arra02.get("city");
-        //System.out.println(arra02.get("city");
         System.out.println("Nombre: "+respostaCity.get("name"));
-        //System.out.println("pais: "+arra02.get("country"));
-        //System.out.println("population: "+arra02.get("population"));
 
         //COD
         System.out.println("llega a cod");
-        //JSONObject respostaCod = (JSONObject)arra02.get("aaaaa");
-        System.out.println("COD"+arra02.get("cod"));
-        //System.out.println(respostaCod);
+        System.out.println("COD: "+arra02.get("cod"));
 
         //message
         System.out.println("MESSAGE: "+arra02.get("message"));
@@ -104,31 +97,13 @@ public class ConectarApi {
         //List
         System.out.println("llega al lista");
         JSONArray respostaList = (JSONArray)arra02.get("list");
-
-        //System.out.println("LISTA: "+respostaList.get("list"));
-        //System.out.println("DT: "+respostaList.get(Integer.parseInt("dt")));
-
+        //Extraer atributos del primer tag de list
         for (int i =0; i < respostaList.size(); i++){
-            //System.out.println("llega al primer for");
-            //System.out.println("elementos del array: "+respostaList.size());
-
-            //8System.out.println("DT: "+respostaList.get(Integer.parseInt("dt")));
-            JSONObject listJasonObj = (JSONObject)respostaList.get(i);
-            Double rain = (Double)listJasonObj.get("rain");
-            System.out.println(rain);
+            System.out.println("llega al primer for");
+            JSONObject listaJsonObj = (JSONObject)respostaList.get(i);
+            System.out.println("TEMP: "+listaJsonObj.get("temp"));
 
 
-            //arrayTemp.get(Integer.parseInt("temp"));
-            /*JSONArray respostaTemp = (JSONArray)arrayTemp.get(Integer.parseInt("temp"));
-            System.out.println(respostaTemp.get(Integer.parseInt("max")));*/
-                    //(JSONArray)respostaList.get(i);
-            //System.out.println(arrayTemp.get(Integer.parseInt("temp")));
-
-            /*for(int j=0; j<respostaTemp.size(); j++){
-                System.out.println("llega al segundo for");
-                JSONObject arrayMin = (JSONObject) arrayTemp.get(j);
-                System.out.println("Mínima:"+arrayMin.get(Integer.parseInt("min")));
-            }*/
         }
         //System.out.println(respostaList.get("temp"));
         //System.out.println(resposta.get("clouds"));

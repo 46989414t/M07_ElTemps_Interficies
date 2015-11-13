@@ -12,6 +12,8 @@ import javax.xml.transform.Transformer;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 
@@ -72,7 +74,17 @@ public class ConectarApi {
     }
 
     public static void SJS (String cadena) throws ParseException {
+        //extraer fecha
+        Calendar c = new GregorianCalendar();
 
+        String dia, mes, annio;
+
+        dia = Integer.toString(c.get(Calendar.DATE));
+        mes = Integer.toString(c.get(Calendar.MONTH));
+        annio = Integer.toString(c.get(Calendar.YEAR));
+
+        int diaInt = Integer.parseInt(dia);
+        //---------------------------
         Object obj02 = JSONValue.parse(cadena);
         JSONObject arra02=(JSONObject)obj02;
 
@@ -83,33 +95,31 @@ public class ConectarApi {
         //System.out.println(out);
         //Ciutats
         JSONObject respostaCity = (JSONObject)arra02.get("city");
-        System.out.println("Nombre: "+respostaCity.get("name"));
+        System.out.println("Ciudad: "+respostaCity.get("name"));
 
         //COD
-        System.out.println("llega a cod");
-        System.out.println("COD: "+arra02.get("cod"));
+        //System.out.println("llega a cod");
+        //System.out.println("COD: "+arra02.get("cod"));
 
         //message
-        System.out.println("MESSAGE: "+arra02.get("message"));
+        //System.out.println("MESSAGE: "+arra02.get("message"));
 
         //cnt
-        System.out.println("CNT: "+arra02.get("cnt"));
+        System.out.println("Previsión de días: "+arra02.get("cnt"));
         //List
-        System.out.println("llega al lista");
+        //System.out.println("llega al lista");
         JSONArray respostaList = (JSONArray)arra02.get("list");
         //Extraer atributos del primer tag de list
         for (int i =0; i < respostaList.size(); i++){
-            System.out.println("llega al primer for");
+            //System.out.println("llega al primer for");
             JSONObject listaJsonObj = (JSONObject)respostaList.get(i);
-            System.out.println("TEMP: "+listaJsonObj.get("temp"));
-
+            //Extraer atributos del tag temp
+            JSONObject temp = (JSONObject)listaJsonObj.get("temp");
+            System.out.println("DIA: "+(diaInt+i)+"/"+mes+"/"+annio);
+            System.out.println("Mínimas: "+temp.get("min"));
+            System.out.println("Máximas: "+temp.get("max")+"\n");
 
         }
-        //System.out.println(respostaList.get("temp"));
-        //System.out.println(resposta.get("clouds"));
-
-        // System.out.println(arra02.get(""));
-
 
     }
 

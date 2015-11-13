@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.control.TextField;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -23,7 +24,6 @@ import java.util.List;
  */
 public class ConectarApi {
 
-
     public static String getHTML(String urlToRead) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
@@ -39,9 +39,9 @@ public class ConectarApi {
     }
 
     public static void main(String[] args){
-        String city="Barcelona";
+        String city="";
         String unitats="metric";
-        int dies=7;
+        int dies=0;
 
         String s = "";
         String api_key = "4c3c9fd618e5d67bb93faf64733a3470";

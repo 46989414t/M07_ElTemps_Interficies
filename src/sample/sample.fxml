@@ -4,15 +4,14 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ListView layoutX="238.0" layoutY="74.0" prefHeight="312.0" prefWidth="348.0" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="74.0" />
-      <Button layoutX="26.0" layoutY="74.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="90.0" text="Refresh" />
+      <ListView fx:id="listaResusltados" layoutX="238.0" layoutY="74.0" prefHeight="312.0" prefWidth="348.0" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="74.0" />
+      <Button fx:id="refresh" layoutX="26.0" layoutY="74.0" mnemonicParsing="false" onAction="#refresh" prefHeight="62.0" prefWidth="90.0" text="Refresh" />
       <Button layoutX="19.0" layoutY="310.0" mnemonicParsing="false" text="Farenheit" />
       <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" text="Celcius" />
-      <TextField layoutX="26.0" layoutY="204.0" />
-      <TextField layoutX="26.0" layoutY="160.0" />
-      <TextField layoutX="26.0" layoutY="242.0" />
+      <TextField fx:id="introDias" layoutX="26.0" layoutY="204.0" prefHeight="26.0" prefWidth="56.0" promptText="Days" />
+      <TextField fx:id="introCiudad" layoutX="26.0" layoutY="160.0" promptText="City" />
+      <TextField layoutX="26.0" layoutY="274.0" />
    </children>
 </AnchorPane>
